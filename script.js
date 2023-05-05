@@ -1,38 +1,45 @@
-let texto = document.querySelector('.decodificar');
-texto.focus();
 let teste = document.querySelector('.codificar');
+teste.focus();
+let texto = document.querySelector('.decodificar');
+let final = document.querySelector('.resposta');
 
 let encriptografar = document.querySelector('.go');
 encriptografar.onclick = function first() {
-  texto = document.querySelector('.decodificar');
-  let resultado = texto.value;
+  teste = document.querySelector('.codificar');
+  let resultado = teste.value;
   resultado = resultado.replace(/e/g, 'enter');
   resultado = resultado.replace(/i/g, 'imes');
   resultado = resultado.replace(/a/g, 'ai');
   resultado = resultado.replace(/o/g, 'ober');
   resultado = resultado.replace(/u/g, 'ufat');
+  final.value = resultado;
+  teste.value = '';
   texto.value = '';
   teste.focus();
-  console.log(resultado);
 };
 
 let descriptografar = document.querySelector('.back');
 descriptografar.onclick = function () {
-  teste = document.querySelector('.codificar');
-  let texto2 = teste.value;
+  texto = document.querySelector('.decodificar');
+  let texto2 = texto.value;
   texto2 = texto2.replace(/enter/g, 'e');
   texto2 = texto2.replace(/imes/g, 'i');
   texto2 = texto2.replace(/ai/g, 'a');
   texto2 = texto2.replace(/ober/g, 'o');
   texto2 = texto2.replace(/ufat/g, 'u');
+  final.value = texto2;
+  texto.value = '';
   teste.value = '';
-  texto.focus();
-  console.log(texto2);
+  teste.focus();
 };
 
-let copiar = document.querySelector('.copiar');
+let copiar = document.querySelector('.button-copy');
 copiar.onclick = function () {
-  let copiartexto = document.querySelector('.codificar');
+  let copiartexto = document.querySelector('.resposta');
   copiartexto.select();
   navigator.clipboard.writeText(copiartexto.value);
 };
+
+function myFunction() {
+  document.getElementById('myDIV').style.display = 'none';
+}

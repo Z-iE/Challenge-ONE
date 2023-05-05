@@ -11,16 +11,25 @@
   box-sizing: border-box;
   margin: 20px 20px 20px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
   overflow: hidden;
+  box-shadow: 20px 5px 20px #83acb9;
 }
-.vertical img {
+.robot {
   position: absolute;
   bottom: 0;
   left: 50%;
   width: 90%;
   transform: translateX(-47%);
 }
+.button {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-47%);
+}
+
 .vertical p {
   position: absolute;
   top: 8%;
@@ -31,18 +40,88 @@
   color: #ffffff;
   font-size: 5vw;
 }
+.vertical p span {
+  color: #436069;
+}
 .horizontal {
   height: 70vh;
   width: calc(50vw - 26px);
   border-radius: 25px;
-
+  text-align: center;
   background-color: #ffffff;
   display: inline-block;
   margin: 16.5vh 20px 16.5vh -60px;
   vertical-align: top;
   border: 3px #98b5be solid;
   position: relative;
-  z-index: -1;
+  z-index: 1;
 }
-.decodificador {
+.resposta {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  width: 550px;
+  height: 200px;
+  padding: 20px;
+  resize: none;
+  outline: none;
+  margin-left: 10%;
+  margin-top: 10%;
+  border-radius: 21px;
+  box-shadow: none;
+  background-color: #436069;
+  border: 1px solid #ffffff;
+  border-bottom: 5px solid #ffffff;
+}
+
+textarea,
+button {
+  display: block;
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-bottom: 5px;
+  z-index: 3;
+}
+textarea {
+  font-family: 'Poppins', sans-serif;
+  width: 450px;
+  height: 130px;
+  padding: 20px;
+  border: 1px #436069 solid;
+  border-radius: 21px;
+  box-sizing: border-box;
+  resize: none;
+  outline: none;
+  box-shadow: 6px 6px 5px #83acb9;
+}
+button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  color: #ffffff;
+  background-color: #98b5be;
+  width: 200px;
+  height: 60px;
+  margin-left: 38%;
+  border: none;
+  border-radius: 21px;
+  border-bottom: 5px solid #436069;
+  transition: 0.1s;
+}
+button:active {
+  transform: scale(0.96);
+}
+
+textarea::-webkit-scrollbar {
+  width: 10px;
+}
+::selection {
+  background-color: #98b5be;
+}
+.logo {
+  position: absolute;
+  width: 30px;
+  right: 4%;
+  margin: 0;
+  top: 8%;
 }
