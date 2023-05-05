@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+.vertical {
+  height: calc(100vh - 40px);
+  width: 50vw;
+  border-radius: 65px;
+  background-color: #98b5be;
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 20px 20px 20px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+.vertical img {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-47%);
+}
+.vertical p {
+  position: absolute;
+  top: 8%;
+  left: 30px;
+  right: 5px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  color: #ffffff;
+  font-size: 5vw;
+}
+.horizontal {
+  height: 70vh;
+  width: calc(50vw - 26px);
+  border-radius: 25px;
+
+  background-color: #ffffff;
+  display: inline-block;
+  margin: 16.5vh 20px 16.5vh -60px;
+  vertical-align: top;
+  border: 3px #98b5be solid;
+  position: relative;
+  z-index: -1;
+}
+.decodificador {
+}
