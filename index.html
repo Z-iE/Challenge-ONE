@@ -9,23 +9,38 @@
     <title>Document</title>
   </head>
   <body>
-    <img class="logo" src="Resource/alura-logo.svg" />
-    <div class="container">
-      <div class="vertical">
-        <img class="robot" src="Resource/Group 2.svg" />
-        <p>
-          desvende a mensagem e libere a diversão<span>.</span>.<span>.</span>
-        </p>
+    <main>
+      <img class="logo" src="Resource/alura-logo.svg" />
+      <div class="aviso">
+        <p>Somente use letras minúsculas e sem acento!</p>
       </div>
-      <div class="horizontal">
-        <textarea class="codificar" type="text"></textarea>
-        <button class="go">Encriptografar</button>
-        <textarea class="decodificar" type="text"></textarea>
-        <button class="back">Descriptografar</button>
+      <div class="container">
+        <div class="vertical" style="display: inline-block">
+          <img class="robot" src="Resource/Group 2.svg" />
+          <p>
+            desvende a mensagem e libere a diversão<span>.</span>.<span>.</span>
+          </p>
+        </div>
+        <div class="pagina2" style="display: none">
+          <textarea class="resposta" type="text"></textarea>
+          <img class="button" src="Resource/Group 4.svg" usemap="#copiar" />
+          <map name="copiar">
+            <area
+              class="button-copy"
+              shape="rect"
+              coords="100%,50%,350%,150%"
+            />
+          </map>
+        </div>
+        <div class="horizontal">
+          <textarea class="codificar" type="text"></textarea>
+          <button class="go">Encriptografar</button>
+          <textarea class="decodificar" type="text"></textarea>
+          <button class="back">Descriptografar</button>
+        </div>
       </div>
-    </div>
-
-    <!--<button class="copiar">copiar</button>-->
+    </main>
+    <footer></footer>
     <script src="script.js"></script>
   </body>
 </html>

@@ -7,7 +7,19 @@
   width: 50vw;
   border-radius: 65px;
   background-color: #98b5be;
-  display: inline-block;
+  box-sizing: border-box;
+  margin: 20px 20px 20px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 20px 5px 20px #83acb9;
+}
+.pagina2 {
+  height: calc(100vh - 40px);
+  width: 50vw;
+  border-radius: 65px;
+  background-color: #98b5be;
+  display: none;
   box-sizing: border-box;
   margin: 20px 20px 20px;
   position: relative;
@@ -124,4 +136,17 @@ textarea::-webkit-scrollbar {
   right: 4%;
   margin: 0;
   top: 8%;
+}
+.aviso {
+  margin-bottom: 5px;
+}
+.aviso p {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  position: absolute;
+  right: 10.5%;
+  top: 12%;
+  background-color: #98b5be;
+  padding: 5px;
+  border-radius: 6px;
 }
