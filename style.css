@@ -1,25 +1,13 @@
+/** pagina inicial */
 .container {
   display: flex;
   flex-direction: row;
 }
-.vertical {
+#vertical-container {
   height: calc(100vh - 40px);
   width: 50vw;
   border-radius: 65px;
   background-color: #98b5be;
-  box-sizing: border-box;
-  margin: 20px 20px 20px;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-  box-shadow: 20px 5px 20px #83acb9;
-}
-.pagina2 {
-  height: calc(100vh - 40px);
-  width: 50vw;
-  border-radius: 65px;
-  background-color: #98b5be;
-  display: none;
   box-sizing: border-box;
   margin: 20px 20px 20px;
   position: relative;
@@ -34,15 +22,7 @@
   width: 90%;
   transform: translateX(-47%);
 }
-.button {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 90%;
-  transform: translateX(-47%);
-}
-
-.vertical p {
+#vertical-container p {
   position: absolute;
   top: 8%;
   left: 30px;
@@ -52,10 +32,10 @@
   color: #ffffff;
   font-size: 5vw;
 }
-.vertical p span {
+#vertical-container p span {
   color: #436069;
 }
-.horizontal {
+.horizontal-container {
   height: 70vh;
   width: calc(50vw - 26px);
   border-radius: 25px;
@@ -68,7 +48,7 @@
   position: relative;
   z-index: 1;
 }
-.resposta {
+.criptografia-area {
   font-family: 'Poppins', sans-serif;
   font-size: 20px;
   color: #ffffff;
@@ -85,7 +65,39 @@
   border: 1px solid #ffffff;
   border-bottom: 5px solid #ffffff;
 }
+.logo {
+  position: absolute;
+  width: 30px;
+  right: 4%;
+  margin: 0;
+  top: 8%;
+}
+/** resultado da criptografia */
+#pagina-resultado {
+  height: calc(100vh - 40px);
+  width: 50%;
+  border-radius: 65px;
+  background-color: #98b5be;
+  display: none;
+  box-sizing: border-box;
+  margin: 20px 20px 20px;
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  box-shadow: 20px 5px 20px #83acb9;
+}
+.botao-copiar {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 90%;
+  transform: translateX(-47%);
+}
+::selection {
+  background-color: #83acb9;
+}
 
+/** config */
 textarea,
 button {
   display: block;
@@ -96,8 +108,8 @@ button {
 }
 textarea {
   font-family: 'Poppins', sans-serif;
-  width: 450px;
-  height: 130px;
+  width: 75%;
+  height: 28%;
   padding: 20px;
   border: 1px #436069 solid;
   border-radius: 21px;
@@ -112,9 +124,9 @@ button {
   font-size: 1em;
   color: #ffffff;
   background-color: #98b5be;
-  width: 200px;
-  height: 60px;
-  margin-left: 38%;
+  width: 30%;
+  height: 12%;
+  margin-left: 40%;
   border: none;
   border-radius: 21px;
   border-bottom: 5px solid #436069;
@@ -127,16 +139,8 @@ button:active {
 textarea::-webkit-scrollbar {
   width: 10px;
 }
-::selection {
-  background-color: #98b5be;
-}
-.logo {
-  position: absolute;
-  width: 30px;
-  right: 4%;
-  margin: 0;
-  top: 8%;
-}
+
+/** pop-up de erro */
 .aviso {
   margin-bottom: 5px;
 }
@@ -149,4 +153,94 @@ textarea::-webkit-scrollbar {
   background-color: #98b5be;
   padding: 5px;
   border-radius: 6px;
+}
+
+section {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: #e3f2fd;
+  z-index: 3;
+}
+
+#caixa-aviso {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+#caixa-aviso {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  max-width: 380px;
+  width: 100%;
+  padding: 30px 20px;
+  border-radius: 24px;
+  background-color: #fff;
+  opacity: 1;
+  transition: all 0.3s ease;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+#caixa-aviso i {
+  font-size: 70px;
+  color: #98b5be;
+}
+#caixa-aviso h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-top: 20px;
+  font-size: 25px;
+  font-weight: 500;
+  color: #333;
+}
+#caixa-aviso h3 {
+  margin-top: 25px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+  text-align: center;
+}
+#caixa-aviso .fechar {
+  margin-top: 25px;
+}
+#caixa-aviso button {
+  width: 100%;
+  font-size: 14px;
+  padding: 6px 12px;
+  margin: 0 1.5px;
+  cursor: pointer;
+}
+#overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  margin: 0;
+}
+
+footer {
+  text-align: center;
+  background-color: #98b5be;
+}
+footer p {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+}
+footer .footerLogo {
+  display: inline-block;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
