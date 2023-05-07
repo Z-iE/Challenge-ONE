@@ -26,12 +26,9 @@ let encriptografar = document.querySelector('.enviar');
 encriptografar.onclick = function iniciar() {
   textoCodificar = document.querySelector('.codificar');
   /** teste de acento e maiusculas */
-  const regex = /[A-ZÀ-ÖØ-Þ-záàãâéèêíìîóòõôúùûÁÀÃÂÉÈÊÍÌÎÓÒÕÔÚÙÛ]/;
+  const regex = /^[a-z\s\p{P}]+$/u;
   if (regex.test(textoCodificar.value)) {
-    aviso();
-  } else {
-
-  /** criptografia */
+    /** criptografia */
     let transformar = textoCodificar.value;
     transformar = transformar.replace(/e/g, 'enter');
     transformar = transformar.replace(/i/g, 'imes');
@@ -42,13 +39,14 @@ encriptografar.onclick = function iniciar() {
     textoCodificar.value = '';
     textoDecodificar.value = '';
     textoDecodificar.focus();
-
-    /** trocar layout da pagina */
-    layoutAntig = document.getElementById('vertical-container');
-    layoutAntig.style.display = 'none';
-    layoutNovo = document.getElementById('pagina-resultado');
-    layoutNovo.style.display = 'inline-block';
+  } else {
+    aviso();
   }
+  /** trocar layout da pagina */
+  layoutAntig = document.getElementById('vertical-container');
+  layoutAntig.style.display = 'none';
+  layoutNovo = document.getElementById('pagina-resultado');
+  layoutNovo.style.display = 'inline-block';
 };
 
 /** descriptografar a palavra */
@@ -57,12 +55,9 @@ descriptografar.onclick = function () {
   textoDecodificar = document.querySelector('.decodificar');
 
   /** teste de acento e maiusculas */
-  const regex = /[A-ZÀ-ÖØ-Þ-záàãâéèêíìîóòõôúùûÁÀÃÂÉÈÊÍÌÎÓÒÕÔÚÙÛ]/;
+  const regex = /^[a-z\s\p{P}]+$/u;
   if (regex.test(textoDecodificar.value)) {
-    aviso();
-  } else {
-
-  /** descriptografar */
+    /** descriptografar */
     let decodificar = textoDecodificar.value;
     decodificar = decodificar.replace(/enter/g, 'e');
     decodificar = decodificar.replace(/imes/g, 'i');
@@ -73,13 +68,14 @@ descriptografar.onclick = function () {
     textoDecodificar.value = '';
     textoCodificar.value = '';
     textoCodificar.focus();
-
-    /** trocar layout da pagina */
-    layoutAntig = document.getElementById('vertical-container');
-    layoutAntig.style.display = 'none';
-    layoutNovo = document.getElementById('pagina-resultado');
-    layoutNovo.style.display = 'inline-block';
+  } else {
+    aviso();
   }
+  /** trocar layout da pagina */
+  layoutAntig = document.getElementById('vertical-container');
+  layoutAntig.style.display = 'none';
+  layoutNovo = document.getElementById('pagina-resultado');
+  layoutNovo.style.display = 'inline-block';
 };
 
 /** função de copiar resultado */

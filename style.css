@@ -93,6 +93,10 @@
   width: 90%;
   transform: translateX(-47%);
 }
+::selection {
+  background-color: #83acb9;
+}
+
 /** config */
 textarea,
 button {
@@ -219,4 +223,24 @@ section {
   pointer-events: none;
   z-index: 3;
   margin: 0;
+}
+
+footer {
+  text-align: center;
+  background-color: #98b5be;
+}
+footer p {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  margin: 5px 0;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 400;
+}
+footer .footerLogo {
+  display: inline-block;
+  height: 30px;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
