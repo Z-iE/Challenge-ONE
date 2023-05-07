@@ -1,84 +1,92 @@
-let teste = document.querySelector('.codificar');
-teste.focus();
-let texto = document.querySelector('.decodificar');
-let final = document.querySelector('.resposta');
-let oldDiv = document.getElementsByClassName('vertical');
-let newDiv = document.getElementsByClassName('pagina2');
-const closeModalButton = document.querySelector('.close-btn');
-const modalBox = document.querySelector('#modal-box');
+/** iniciar variaveis */
+let textoCodificar = document.querySelector('.codificar');
+textoCodificar.focus();
+let textoDecodificar = document.querySelector('.decodificar');
+let resultadoCodif = document.querySelector('.criptografia-area');
+let layoutAntig = document.getElementById('vertical-container');
+let layoutNovo = document.getElementById('pagina-resultado');
+const encerrarAviso = document.querySelector('.fechar-caixa');
+const caixaAviso = document.querySelector('#caixa-aviso');
 const overlay = document.querySelector('#overlay');
 
-function popup() {
-  modalBox.style.display = 'flex';
+/** pop-up de erro */
+function aviso() {
+  caixaAviso.style.display = 'flex';
   overlay.style.opacity = 1;
-  closeModalButton.addEventListener('click', hide);
+  encerrarAviso.addEventListener('click', hide);
   function hide() {
-    modalBox.style.display = 'none';
+    caixaAviso.style.display = 'none';
     overlay.style.opacity = 0;
   }
 }
 
-let encriptografar = document.querySelector('.go');
-encriptografar.onclick = function first() {
-  teste = document.querySelector('.codificar');
+/** encriptografar palavra */
+let encriptografar = document.querySelector('.enviar');
+
+encriptografar.onclick = function iniciar() {
+  textoCodificar = document.querySelector('.codificar');
+  /** teste de acento e maiusculas */
   const regex = /[A-ZÀ-ÖØ-Þ-záàãâéèêíìîóòõôúùûÁÀÃÂÉÈÊÍÌÎÓÒÕÔÚÙÛ]/;
-  if (regex.test(teste.value)) {
-    console.log('Regex test passed!');
-    popup();
+  if (regex.test(textoCodificar.value)) {
+    aviso();
   } else {
-    let resultado = teste.value;
-    resultado = resultado.replace(/e/g, 'enter');
-    resultado = resultado.replace(/i/g, 'imes');
-    resultado = resultado.replace(/a/g, 'ai');
-    resultado = resultado.replace(/o/g, 'ober');
-    resultado = resultado.replace(/u/g, 'ufat');
-    final.value = resultado;
-    teste.value = '';
-    texto.value = '';
-    teste.focus();
-    oldDiv = document.getElementsByClassName('vertical');
-    for (var i = 0; i < oldDiv.length; i++) {
-      oldDiv[i].style.display = 'none';
-    }
-    newDiv = document.getElementsByClassName('pagina2');
-    for (var i = 0; i < newDiv.length; i++) {
-      newDiv[i].style.display = 'inline-block';
-    }
+
+  /** criptografia */
+    let transformar = textoCodificar.value;
+    transformar = transformar.replace(/e/g, 'enter');
+    transformar = transformar.replace(/i/g, 'imes');
+    transformar = transformar.replace(/a/g, 'ai');
+    transformar = transformar.replace(/o/g, 'ober');
+    transformar = transformar.replace(/u/g, 'ufat');
+    resultadoCodif.value = transformar;
+    textoCodificar.value = '';
+    textoDecodificar.value = '';
+    textoDecodificar.focus();
+
+    /** trocar layout da pagina */
+    layoutAntig = document.getElementById('vertical-container');
+    layoutAntig.style.display = 'none';
+    layoutNovo = document.getElementById('pagina-resultado');
+    layoutNovo.style.display = 'inline-block';
   }
 };
 
-let descriptografar = document.querySelector('.back');
+/** descriptografar a palavra */
+let descriptografar = document.querySelector('.retorno');
 descriptografar.onclick = function () {
-  texto = document.querySelector('.decodificar');
+  textoDecodificar = document.querySelector('.decodificar');
+
+  /** teste de acento e maiusculas */
   const regex = /[A-ZÀ-ÖØ-Þ-záàãâéèêíìîóòõôúùûÁÀÃÂÉÈÊÍÌÎÓÒÕÔÚÙÛ]/;
-  if (regex.test(texto.value)) {
-    popup();
+  if (regex.test(textoDecodificar.value)) {
+    aviso();
   } else {
-    let texto2 = texto.value;
-    texto2 = texto2.replace(/enter/g, 'e');
-    texto2 = texto2.replace(/imes/g, 'i');
-    texto2 = texto2.replace(/ai/g, 'a');
-    texto2 = texto2.replace(/ober/g, 'o');
-    texto2 = texto2.replace(/ufat/g, 'u');
-    final.value = texto2;
-    oldDiv = document.getElementsByClassName('vertical');
-    for (var i = 0; i < oldDiv.length; i++) {
-      oldDiv[i].style.display = 'none';
-    }
-    newDiv = document.getElementsByClassName('pagina2');
-    for (var i = 0; i < newDiv.length; i++) {
-      newDiv[i].style.display = 'inline-block';
-    }
-    texto.value = '';
-    teste.value = '';
-    teste.focus();
+
+  /** descriptografar */
+    let decodificar = textoDecodificar.value;
+    decodificar = decodificar.replace(/enter/g, 'e');
+    decodificar = decodificar.replace(/imes/g, 'i');
+    decodificar = decodificar.replace(/ai/g, 'a');
+    decodificar = decodificar.replace(/ober/g, 'o');
+    decodificar = decodificar.replace(/ufat/g, 'u');
+    resultadoCodif.value = decodificar;
+    textoDecodificar.value = '';
+    textoCodificar.value = '';
+    textoCodificar.focus();
+
+    /** trocar layout da pagina */
+    layoutAntig = document.getElementById('vertical-container');
+    layoutAntig.style.display = 'none';
+    layoutNovo = document.getElementById('pagina-resultado');
+    layoutNovo.style.display = 'inline-block';
   }
 };
 
-let copiar = document.querySelector('.image-button');
+/** função de copiar resultado */
+let copiar = document.querySelector('.botao-copiar');
 copiar.onclick = function () {
-  let copiartexto = document.querySelector('.resposta');
+  let copiartexto = document.querySelector('.criptografia-area');
   copiartexto.select();
   navigator.clipboard.writeText(copiartexto.value);
-  oldDiv = document.getElementsByClassName('vertical');
+  layoutAntig = document.getElementsByClassName('vertical-container');
 };

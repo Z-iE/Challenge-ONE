@@ -1,54 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="stylesheet" href="reset.css" />
-    <title>Document</title>
+    <link rel="icon" href="Arquivos/icon-title.svg"/>
+    <title>Encriptador</title>
   </head>
-  <body>
-    <span id="overlay"></span>
-    <main>
-      <img class="logo" src="Resource/alura-logo.svg" />
-      <div class="aviso">
-        <p>&#9888 Somente use letras minúsculas e sem acento!</p>
-      </div>
-      <div class="container">
-        <div class="vertical" style="display: inline-block">
-          <img class="robot" src="Resource/Group 2.svg" />
-          <p>
-            desvende a mensagem e libere a diversão<span>.</span>.<span>.</span>
-          </p>
-        </div>
-        <div class="pagina2" style="display: none">
-          <textarea class="resposta" type="text"></textarea>
-          <img class="image-button" src="Resource/Group 4.svg" />
-        </div>
-        <div class="horizontal">
-          <textarea class="codificar" type="text"></textarea>
-          <button class="go">Encriptografar</button>
-          <textarea class="decodificar" type="text"></textarea>
-          <button class="back">Descriptografar</button>
-        </div>
-      </div>
-      <section>
-        <div id="modal-box">
-                <i class="fa-solid fa-triangle-exclamation"></i>
-                <h2>Tente Novamente!</h2>
-                <h3>Use somente letras minúsculas e sem acento.</h3>
+    <body>
+      <span id="overlay"></span>
+      <main>
+        <img class="logo" src="Arquivos/alura-logo.svg" />
         
-                <div class="buttons">
-                  <button class="close-btn" onclick="hide()">Fechar</button>
-                </div>
-              </div>
-            </section>
-    </main>
+        <div class="aviso">
+          <p>&#9888 Somente use letras minúsculas e sem acento!</p>
+        </div>
+        
+        <div class="container">
+          <div id="vertical-container" style="display: inline-block">
+            <img class="robot" src="Arquivos/robot.svg" />
+            <p>
+              desvende a mensagem e libere a diversão<span>.</span>.<span>.</span>
+            </p>
+          </div>
+         
+          <div id="pagina-resultado" style="display: none">
+            <textarea class="criptografia-area" type="text"></textarea>
+            <img class="botao-copiar" src="Arquivos/robot-copy.svg" />
+          </div>
+         
+          <div class="horizontal-container">
+            <textarea class="codificar" type="text" placeholder="Digite seu texto aqui..."></textarea>
+            <button class="enviar">Encriptografar</button>
+
+            <textarea class="decodificar" type="text" placeholder="Digite seu texto aqui..."></textarea>
+            <button class="retorno">Descriptografar</button>
+          </div>
+        </div>
+        
+        <section>
+          <div id="caixa-aviso">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h2>Tente Novamente!</h2>
+            <h3>Use somente letras minúsculas e sem acento.</h3>
+            
+            <div class="fechar">
+            <button class="fechar-caixa" onclick="hide()">Fechar</button>
+            </div>
+          
+          </div>
+        
+        </section>
+  </main>
+
     <footer></footer>
     <script src="script.js"></script>
   </body>
